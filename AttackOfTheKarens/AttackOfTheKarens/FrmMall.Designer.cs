@@ -35,7 +35,6 @@
             this.tmrUpdateKarens = new System.Windows.Forms.Timer(this.components);
             this.tmrBossSpawner = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdateBoss = new System.Windows.Forms.Timer(this.components);
-//            this.tmrMoveOwner = new System.Windows.Forms.Timer(this.components);
             this.lblMoneySaved = new System.Windows.Forms.Label();
             this.lblMoneySavedLabel = new System.Windows.Forms.Label();
             this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
@@ -45,22 +44,25 @@
             // 
             this.panMall.BackColor = System.Drawing.Color.Transparent;
             this.panMall.BackgroundImage = global::AttackOfTheKarens.Properties.Resources.mall_bg;
-            this.panMall.Location = new System.Drawing.Point(12, 12);
+            this.panMall.Location = new System.Drawing.Point(14, 16);
+            this.panMall.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panMall.Name = "panMall";
-            this.panMall.Size = new System.Drawing.Size(561, 539);
+            this.panMall.Size = new System.Drawing.Size(641, 719);
             this.panMall.TabIndex = 0;
             // 
             // btnStore
             // 
             this.btnStore.BackColor = System.Drawing.Color.MediumPurple;
             this.btnStore.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStore.Location = new System.Drawing.Point(1347, 65);
+            this.btnStore.Location = new System.Drawing.Point(1294, 77);
+            this.btnStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStore.Name = "btnStore";
-            this.btnStore.Size = new System.Drawing.Size(125, 59);
+            this.btnStore.Size = new System.Drawing.Size(143, 79);
             this.btnStore.TabIndex = 3;
             this.btnStore.Text = "Open the Store";
             this.btnStore.UseVisualStyleBackColor = false;
             this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
+            this.btnStore.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMall_KeyUp);
             // 
             // tmrKarenSpawner
             // 
@@ -71,28 +73,24 @@
             this.tmrUpdateKarens.Enabled = true;
             this.tmrUpdateKarens.Interval = 40;
             this.tmrUpdateKarens.Tick += new System.EventHandler(this.tmrUpdateKarens_Tick);
-            this.tmrUpdateBoss.Enabled = true;
-            this.tmrUpdateBoss.Interval = 100;
-            this.tmrUpdateBoss.Tick += new System.EventHandler(this.tmrUpdateBoss_Tick);
             // 
             // tmrBossSpawner
             // 
             this.tmrBossSpawner.Tick += new System.EventHandler(this.tmrBossSpawner_Tick);
             // 
-            // tmrMoveOwner
+            // tmrUpdateBoss
             // 
-//            this.tmrMoveOwner.Enabled = true;
-//            this.tmrMoveOwner.Interval = 120;
-//            this.tmrMoveOwner.Tick += new System.EventHandler(this.tmrMoveOwner_Tick);
+            this.tmrUpdateBoss.Enabled = true;
+            this.tmrUpdateBoss.Tick += new System.EventHandler(this.tmrUpdateBoss_Tick);
             // 
             // lblMoneySaved
             // 
             this.lblMoneySaved.AutoSize = true;
             this.lblMoneySaved.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMoneySaved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblMoneySaved.Location = new System.Drawing.Point(1075, -1);
+            this.lblMoneySaved.Location = new System.Drawing.Point(1229, -1);
             this.lblMoneySaved.Name = "lblMoneySaved";
-            this.lblMoneySaved.Size = new System.Drawing.Size(98, 32);
+            this.lblMoneySaved.Size = new System.Drawing.Size(119, 41);
             this.lblMoneySaved.TabIndex = 1;
             this.lblMoneySaved.Text = "$ 00.00";
             this.lblMoneySaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -102,9 +100,9 @@
             this.lblMoneySavedLabel.AutoSize = true;
             this.lblMoneySavedLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMoneySavedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblMoneySavedLabel.Location = new System.Drawing.Point(917, 6);
+            this.lblMoneySavedLabel.Location = new System.Drawing.Point(1048, 8);
             this.lblMoneySavedLabel.Name = "lblMoneySavedLabel";
-            this.lblMoneySavedLabel.Size = new System.Drawing.Size(137, 25);
+            this.lblMoneySavedLabel.Size = new System.Drawing.Size(174, 32);
             this.lblMoneySavedLabel.TabIndex = 2;
             this.lblMoneySavedLabel.Text = "Money Saved:";
             this.lblMoneySavedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -116,15 +114,17 @@
             // 
             // FrmMall
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1518, 698);
+            this.ClientSize = new System.Drawing.Size(1735, 931);
             this.Controls.Add(this.btnStore);
             this.Controls.Add(this.lblMoneySavedLabel);
             this.Controls.Add(this.lblMoneySaved);
             this.Controls.Add(this.panMall);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmMall";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attack of the Karens!!";
