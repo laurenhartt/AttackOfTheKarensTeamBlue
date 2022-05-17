@@ -19,8 +19,14 @@ namespace AttackOfTheKarens {
     // other privates
     private SoundPlayer player;
     private PictureBox picOwner;
+    private PictureBox picBoss;
+    private PictureBox picManager;
     private int xOwner;
     private int yOwner;
+    //private int xBoss;
+    //private int yBoss;
+    private int xManager;
+    private int yManager;
     private char[][] map;
     private List<Store> stores;
 
@@ -40,7 +46,9 @@ namespace AttackOfTheKarens {
       }
     }
 
-    private PictureBox CreatePic(Image img, int top, int left) {
+      
+
+        private PictureBox CreatePic(Image img, int top, int left) {
       return new PictureBox() {
         Image = img,
         Top = top,
@@ -61,17 +69,34 @@ namespace AttackOfTheKarens {
       int top = 0;
       int left = 0;
 
+
       PictureBox pic = null;
+      PictureBox picBoss = null;
       foreach (char[] array in map) {
         foreach (char c in array) {
           switch (c) {
-            case 'K':
+            case 'K': case 'B':
+              picBoss = CreatePic(Properties.Resources.boss, top, left);
               pic = CreatePic(Properties.Resources.karen, top, left);
               Store s = new Store(new Karen(pic) {
                 Row = top / CELL_SIZE,
                 Col = left / CELL_SIZE,
+              }, new Boss(pic) {
+                  Row = top / CELL_SIZE,
+                  Col = left / CELL_SIZE,
               });
               stores.Add(s);
+              break;
+            /*case 'B':
+              pic = CreatePic(Properties.Resources.boss, top, left);
+              xBoss = left / CELL_SIZE;
+              yBoss = top / CELL_SIZE;
+              break;
+            */
+            case 'M':
+              picManager = CreatePic(Properties.Resources.storemanager, top, left);
+              xManager = top / CELL_SIZE;
+              yManager = left / CELL_SIZE;
               break;
             case 'o':
               picOwner = CreatePic(Properties.Resources.owner, top, left);
@@ -95,6 +120,12 @@ namespace AttackOfTheKarens {
           if (pic != null) {
             panMall.Controls.Add(pic);
           }
+          if(picBoss != null) {
+            panMall.Controls.Add(picBoss);
+          }
+          if (picManager != null) {
+            panMall.Controls.Add(picManager);
+          }
         }
         left = 0;
         top += CELL_SIZE;
@@ -117,6 +148,8 @@ namespace AttackOfTheKarens {
       GenerateMall(colors[rand.Next(colors.Length)]);
       tmrKarenSpawner.Interval = rand.Next(1000, 5000);
       tmrKarenSpawner.Enabled = true;
+      tmrBossSpawner.Interval = rand.Next(100, 500);
+      tmrBossSpawner.Enabled = true;
       player = new SoundPlayer();
       player.SoundLocation = "data/mall music.wav";
       player.PlayLooping();
@@ -127,7 +160,7 @@ namespace AttackOfTheKarens {
     }
 
     private bool IsWalkable(int newRow, int newCol) {
-      char[] walkableTiles = new char[] { ' ', 'o', 'K', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'L' };
+      char[] walkableTiles = new char[] { ' ', 'o', 'K','B', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'L' };
       return walkableTiles.Contains(map[newRow][newCol]);
     }
 
@@ -186,6 +219,12 @@ namespace AttackOfTheKarens {
       s.ActivateTheKaren();
     }
 
+    private void tmrBossSpawner_Tick(object sender, EventArgs e) {
+          
+            Store s = stores[rand.Next(stores.Count)];
+            s.BossTime();
+        }
+
     private void FrmMall_FormClosed(object sender, FormClosedEventArgs e) {
       Game.openForms.Remove(this);
       Game.CloseAll();
@@ -199,13 +238,31 @@ namespace AttackOfTheKarens {
       }
     }
 
-    private void tmrMoveOwner_Tick(object sender, EventArgs e) {
-      Direction dir = (Direction)rand.Next(4);
-      Move(dir);
-    }
+    private void tmrUpdateBoss_Tick(object sender, EventArgs e) {
+       if (stores != null && stores.Count > 0){
+              foreach (Store store in stores){
+                 store.BUpdate();
+              }
+            }
+        }
+
+//    private void tmrMoveOwner_Tick(object sender, EventArgs e) {
+//      Direction dir = (Direction)rand.Next(4);
+//      Move(dir);
+//    }
 
     private void tmrUpdateGame_Tick(object sender, EventArgs e) {
       lblMoneySaved.Text = Game.Score.ToString("$ #,##0.00");
     }
+
+    private void btnStore_Click(object sender, EventArgs e)
+        {
+            //player?.Stop();
+            ItemStore itemstore = new ItemStore();
+            itemstore.Show();
+            //this.Hide();
+        }
+
+
   }
 }

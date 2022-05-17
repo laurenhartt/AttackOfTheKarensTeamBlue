@@ -1,6 +1,7 @@
 ﻿namespace KarenLogic {
   public class Store {
-    private Karen karen;
+    public Karen karen;
+    public StoreManager manager;
     private bool containsOwner;
 
     public Store(Karen karen) {
