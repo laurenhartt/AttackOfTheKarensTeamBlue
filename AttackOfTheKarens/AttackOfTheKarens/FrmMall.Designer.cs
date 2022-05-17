@@ -71,6 +71,9 @@
             this.tmrUpdateKarens.Enabled = true;
             this.tmrUpdateKarens.Interval = 40;
             this.tmrUpdateKarens.Tick += new System.EventHandler(this.tmrUpdateKarens_Tick);
+            this.tmrUpdateBoss.Enabled = true;
+            this.tmrUpdateBoss.Interval = 100;
+            this.tmrUpdateBoss.Tick += new System.EventHandler(this.tmrUpdateBoss_Tick);
             // 
             // tmrBossSpawner
             // 
