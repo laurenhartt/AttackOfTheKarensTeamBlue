@@ -370,7 +370,7 @@ namespace AttackOfTheKarens
 
         public void itemstore_BuyManagerClick(object sender, EventArgs e)
         {
-            if (Game.Score >= 100f)
+            if (Game.Score >= 500f)
             {
 
                 if (ManagerStores.Count > 0)
@@ -379,7 +379,7 @@ namespace AttackOfTheKarens
                     s.DeployManager();
                     s.manager.pic.Visible = true;
                     s.manager.IsPresent = true;
-                    Game.upgradePay(50f);
+                    Game.upgradePay(500f);
                     ManagerStores.Remove(s);
                 } 
                 
