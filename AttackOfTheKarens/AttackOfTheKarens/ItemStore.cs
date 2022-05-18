@@ -16,10 +16,15 @@ namespace AttackOfTheKarens
         {
             InitializeComponent();
         }
+        public event EventHandler BuyManagerEvent;
 
+        public void BuyManagerClicked(EventArgs e)
+        {
+            BuyManagerEvent?.Invoke(this, e);
+        }
         private void BuyManager_Click(object sender, EventArgs e)
         {
-            
+            BuyManagerClicked(e);
         }
         public event EventHandler rateUpgradeEvent;
 

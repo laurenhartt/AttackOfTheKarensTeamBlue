@@ -323,6 +323,7 @@ namespace AttackOfTheKarens
             itemstore.Show();
             //this.Hide();
             itemstore.rateUpgradeEvent += itemstore_rateClick;
+            itemstore.BuyManagerEvent += itemstore_BuyManagerClick;
 
         }
 
@@ -346,7 +347,7 @@ namespace AttackOfTheKarens
             Game.AddToScore(newScore);
         }
 
-        public void ManagerSpawn(object sender, EventArgs e)
+        public void itemstore_BuyManagerClick(object sender, EventArgs e)
         {
             Store s = ManagerStores[rand.Next(ManagerStores.Count)];
             s.DeployManager();

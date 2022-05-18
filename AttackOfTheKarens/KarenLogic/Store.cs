@@ -6,11 +6,7 @@ namespace KarenLogic {
     public StoreManager manager;
     public bool containsOwner;
 
-    static int number(int min, int max)
-    {
-      Random random = new Random();
-      return random.Next(min, max);
-    }
+   
     public Store(Karen karen, Boss boss) 
     {
         this.karen = karen;
