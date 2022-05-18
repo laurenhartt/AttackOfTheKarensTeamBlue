@@ -91,6 +91,7 @@ namespace KarenLogic
 
         public void Appear()
         {
+            this.Health = 15;
             this.pic.Visible = true;
             this.IsPresent = true;
             this.pic.BringToFront();

@@ -190,7 +190,7 @@ namespace AttackOfTheKarens
             {
                 foreach (Store store in stores)
                 {
-                    if (store.karen.IsPresent && store.containsOwner && (map[newRow][newCol] == 'K'))
+                    if ((store.karen.IsPresent || store.boss.IsPresent) && store.containsOwner && (map[newRow][newCol] == 'K'))
                     {
                         return false;
                     }
