@@ -37,7 +37,6 @@
             this.tmrUpdateBoss = new System.Windows.Forms.Timer(this.components);
             this.tmrgameScore = new System.Windows.Forms.Timer(this.components);
             this.lblMoneySaved = new System.Windows.Forms.Label();
-            this.lblMoneySavedLabel = new System.Windows.Forms.Label();
             this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -55,7 +54,7 @@
             // 
             this.btnStore.BackColor = System.Drawing.Color.MediumPurple;
             this.btnStore.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStore.Location = new System.Drawing.Point(1539, 87);
+            this.btnStore.Location = new System.Drawing.Point(974, 112);
             this.btnStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(143, 79);
@@ -79,9 +78,9 @@
             // 
             this.tmrBossSpawner.Enabled = true;
             this.tmrBossSpawner.Tick += new System.EventHandler(this.tmrBossSpawner_Tick);
-            //
+            // 
             // tmrUpdateBoss
-            //
+            // 
             this.tmrUpdateBoss.Enabled = true;
             this.tmrUpdateBoss.Tick += new System.EventHandler(this.tmrUpdateBoss_Tick);
             // 
@@ -102,18 +101,6 @@
             this.lblMoneySaved.Text = "$ 00.00";
             this.lblMoneySaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblMoneySavedLabel
-            // 
-            this.lblMoneySavedLabel.AutoSize = true;
-            this.lblMoneySavedLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMoneySavedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblMoneySavedLabel.Location = new System.Drawing.Point(767, -1);
-            this.lblMoneySavedLabel.Name = "lblMoneySavedLabel";
-            this.lblMoneySavedLabel.Size = new System.Drawing.Size(186, 32);
-            this.lblMoneySavedLabel.TabIndex = 2;
-            this.lblMoneySavedLabel.Text = "Money Earned:";
-            this.lblMoneySavedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // tmrUpdateGame
             // 
             this.tmrUpdateGame.Enabled = true;
@@ -127,7 +114,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1983, 1241);
             this.Controls.Add(this.btnStore);
-            this.Controls.Add(this.lblMoneySavedLabel);
             this.Controls.Add(this.lblMoneySaved);
             this.Controls.Add(this.panMall);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -152,7 +138,6 @@
         private System.Windows.Forms.Timer tmrUpdateBoss;
 //        private System.Windows.Forms.Timer tmrMoveOwner;
         private System.Windows.Forms.Label lblMoneySaved;
-        private System.Windows.Forms.Label lblMoneySavedLabel;
         private System.Windows.Forms.Timer tmrUpdateGame;
         private System.Windows.Forms.Button btnStore;
         private System.Windows.Forms.Timer tmrgameScore;

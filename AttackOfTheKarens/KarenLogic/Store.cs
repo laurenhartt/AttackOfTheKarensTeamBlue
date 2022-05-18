@@ -16,6 +16,7 @@ namespace KarenLogic {
         this.karen = karen;
         this.boss = boss;
         this.manager = manager;
+        
     }
 
 

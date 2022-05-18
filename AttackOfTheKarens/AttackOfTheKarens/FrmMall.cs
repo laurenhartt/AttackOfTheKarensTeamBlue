@@ -35,6 +35,7 @@ namespace AttackOfTheKarens
         private DateTime scoreTimer2;
         private List<Store> Karenstores;
         private List<Store> ManagerStores;
+        private int rate = 10;
 
         // ctor
         public FrmMall()
@@ -159,9 +160,9 @@ namespace AttackOfTheKarens
             this.Width = panMall.Width + FORM_PADDING + 75;
             this.Height = panMall.Height + FORM_PADDING;
             lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 10;
-            lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
-            lblMoneySavedLabel.Top = 0;
-            lblMoneySaved.Top = lblMoneySavedLabel.Height + 5;
+            //lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
+            //lblMoneySavedLabel.Top = 0;
+            lblMoneySaved.Top = 0;
         }
 
         private void FrmMall_Load(object sender, EventArgs e)
@@ -268,7 +269,7 @@ namespace AttackOfTheKarens
 
         private void tmrBossSpawner_Tick(object sender, EventArgs e)
         {
-            if (Game.Score % 1000 < 100 && Game.Score > 1000)
+            if (Game.Score % 1000 < 25 && Game.Score > 1000)
             {
                 Store s = Karenstores[rand.Next(Karenstores.Count)];
                 s.BossTime();
@@ -321,6 +322,8 @@ namespace AttackOfTheKarens
             ItemStore itemstore = new ItemStore();
             itemstore.Show();
             //this.Hide();
+            itemstore.rateUpgradeEvent += itemstore_rateClick;
+
         }
 
         private void gameScore_Tick(object sender, EventArgs e)
@@ -337,9 +340,9 @@ namespace AttackOfTheKarens
                 if (s.karen.IsPresent) count += 1;
                 if (s.boss.IsPresent) count += 3;
             }
-            if (count == 0)  newScore = (float)(10 * newTime);
+            if (count == 0)  newScore = (float)(rate * newTime);
        
-            else newScore = (float)((10 / count) * newTime); 
+            else newScore = (float)((rate / count) * newTime); 
             Game.AddToScore(newScore);
         }
 
@@ -348,7 +351,10 @@ namespace AttackOfTheKarens
             Store s = ManagerStores[rand.Next(ManagerStores.Count)];
             s.DeployManager();
         }
-
+        private void itemstore_rateClick(object sender, EventArgs e)
+        {
+            rate += 1;
+        }
     }
 }
 
