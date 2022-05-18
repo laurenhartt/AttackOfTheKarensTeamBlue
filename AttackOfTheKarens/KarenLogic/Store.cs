@@ -13,38 +13,50 @@ namespace KarenLogic {
     }
     public Store(Karen karen, Boss boss) 
     {
-      this.karen = karen;
-      this.boss = boss;
+      if (number(1, 100) == 1)
+      {
+        this.karen = boss;
+      }
+      else
+      {
+        this.karen = karen;
+      }
     }
 
-    public void ActivateTheKaren() {
-      karen.Appear();
-    }
+
+        public void ActivateTheKaren()
+        {
+            karen.Appear();
+        }
 
     public void BossTime()
     {
-      boss.Appear();
+      karen.Appear();
     }
 
-    public void OwnerWalksIn() {
-      containsOwner = true;
-    }
+        public void OwnerWalksIn()
+        {
+            containsOwner = true;
+        }
 
-    public void ResetOwner() {
-      containsOwner = false;
-    }
+        public void ResetOwner()
+        {
+            containsOwner = false;
+        }
 
-    public void Update() {
-      if (karen.IsPresent && containsOwner) {
-        karen.Damage(1);
-      }
-    }
+        public void Update()
+        {
+            if (karen.IsPresent && containsOwner)
+            {
+                karen.Damage(1);
+            }
+        }
 
     public void BUpdate()
     {
       if (karen.IsPresent && containsOwner)
       {
-        boss.Damage(1);
+        karen.Damage(1);
       }
     }
   }
