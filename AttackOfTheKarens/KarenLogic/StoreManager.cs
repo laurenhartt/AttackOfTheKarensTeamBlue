@@ -36,6 +36,5 @@ namespace KarenLogic {
             this.pic.BringToFront();
 
         }
-
     }
 }

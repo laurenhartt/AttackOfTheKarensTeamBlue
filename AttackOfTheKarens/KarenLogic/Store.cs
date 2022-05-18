@@ -1,11 +1,11 @@
 ﻿using System;
 namespace KarenLogic {
   public class Store {
-    public Karen karen;
-    public Boss boss;
-    public StoreManager manager;
-    public bool containsOwner;
-    public int attack;
+  public Karen karen;
+  public Boss boss;
+  public StoreManager manager;
+  public bool containsOwner;
+  public int attack;
 
    
     public Store(Karen karen, Boss boss, StoreManager manager) 
@@ -27,11 +27,14 @@ namespace KarenLogic {
         {
             attack++;
         }
-    public void BossTime()
-    {
-      if(karen.IsPresent) karen.Dissapear();
-      boss.Appear();
-    }
+    
+        public void BossTime()
+        {
+      
+            if(karen.IsPresent) karen.Dissapear();
+            boss.Appear();
+        }
+        
         public void DeployManager()
         {
             manager.Appear();
@@ -55,13 +58,13 @@ namespace KarenLogic {
             }
         }
 
-    public void BUpdate()
-    {
-      if (boss.IsPresent && containsOwner)
-      {
-        boss.Damage(1);
-      }
-    }
+        public void BUpdate()
+        {
+            if (boss.IsPresent && containsOwner)
+            {
+                boss.Damage(1);
+            }
+        }
 
         public void MUpdateK()
         {

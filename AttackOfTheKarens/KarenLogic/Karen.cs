@@ -61,6 +61,7 @@ namespace KarenLogic
 
         }
     }
+
     public class Boss : Karen
     {
         /// <summary>
@@ -107,8 +108,7 @@ namespace KarenLogic
                 this.pic.Visible = false;
                 this.IsPresent = false;
             }
-
         }
     }
-    }
+}
 

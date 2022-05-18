@@ -26,8 +26,6 @@ namespace AttackOfTheKarens
         private PictureBox picManager;
         private int xOwner;
         private int yOwner;
-        //private int xBoss;
-        //private int yBoss;
         private int xManager;
         private int yManager;
         private char[][] map;
@@ -110,12 +108,6 @@ namespace AttackOfTheKarens
                             }, null);
                             Karenstores.Add(s);
                             break;
-                        /*case 'B':
-                          pic = CreatePic(Properties.Resources.boss, top, left);
-                          xBoss = left / CELL_SIZE;
-                          yBoss = top / CELL_SIZE;
-                          break;
-                        */
                         case 'M':
                             picManager = CreatePic(Properties.Resources.storemanager, top, left);
                             xManager = top / CELL_SIZE;
@@ -170,8 +162,6 @@ namespace AttackOfTheKarens
             this.Width = panMall.Width + FORM_PADDING + 75;
             this.Height = panMall.Height + FORM_PADDING;
             lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 85;
-            //lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
-            //lblMoneySavedLabel.Top = 0;
             lblMoneySaved.Top = 0;
             for (int i = 0; i <= ManagerStores.Count - 1; i++)
             {
@@ -319,33 +309,20 @@ namespace AttackOfTheKarens
             }
         }
 
-//        private void tmrMoveOwner_Tick(object sender, EventArgs e) {
-//          Direction dir = (Direction)rand.Next(4);
-//          Move(dir);
-//        }
-
         private void tmrUpdateGame_Tick(object sender, EventArgs e)
         {
-            
-
             lblMoneySaved.Text = Game.Score.ToString("$ #,##0.00");
         }
 
         private void btnStore_Click(object sender, EventArgs e)
         {
-            //player?.Stop();
             ItemStore itemStore = new ItemStore();
             itemStore.Initialize();
             itemStore.addStores(ManagerStores);
             itemStore.Show();
-            //this.Hide();
             itemStore.rateUpgradeEvent += itemstore_rateClick;
-
             itemStore.attackUpgradeEvent += itemstore_attackClick;
-
             itemStore.BuyManagerEvent += itemstore_BuyManagerClick;
-
-
         }
 
         private void gameScore_Tick(object sender, EventArgs e)
@@ -372,7 +349,6 @@ namespace AttackOfTheKarens
         {
             if (Game.Score >= 500f)
             {
-
                 if (ManagerStores.Count > 0)
                 {
                     Store s = ManagerStores[rand.Next(ManagerStores.Count)];
@@ -382,14 +358,12 @@ namespace AttackOfTheKarens
                     Game.upgradePay(500f);
                     ManagerStores.Remove(s);
                 } 
-                
             }
         }
         private void itemstore_rateClick(object sender, EventArgs e)
         {
             if (Game.Score >= 500f)
             {
-
                 rate += 1;
                 Game.upgradePay(500f);
             }
@@ -399,19 +373,18 @@ namespace AttackOfTheKarens
         {
             if (Game.Score >= 500f)
             {
-
                 foreach (Store store in Karenstores)
                 {
                     store.addAttack();
 
                 }
+
                 Game.upgradePay(500f);
             }
         }
 
         private void updateManager_Tick(object sender, EventArgs e)
         {
-
             foreach (KeyValuePair<Store, Store> k in KM)
             {
                 if (k.Key.manager.IsPresent && k.Value.karen.IsPresent)
@@ -425,16 +398,11 @@ namespace AttackOfTheKarens
 
             }
         }
-                private void HowToPlay_Click(object sender, EventArgs e)
+        private void HowToPlay_Click(object sender, EventArgs e)
         {
-             
-                HowToPlay howtoplay = new HowToPlay();
-                howtoplay.Show();
-                
-            
+            HowToPlay howtoplay = new HowToPlay();
+            howtoplay.Show();
         }
-
-       
     }
 }
 
