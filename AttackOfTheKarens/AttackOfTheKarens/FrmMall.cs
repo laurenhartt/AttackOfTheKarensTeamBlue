@@ -157,10 +157,10 @@ namespace AttackOfTheKarens
             panMall.Height = CELL_SIZE * map.Length + PANEL_PADDING;
             this.Width = panMall.Width + FORM_PADDING + 75;
             this.Height = panMall.Height + FORM_PADDING;
-            lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 10;
-            lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
-            lblMoneySavedLabel.Top = 0;
-            lblMoneySaved.Top = lblMoneySavedLabel.Height + 5;
+            lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 50;
+            //lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
+            //lblMoneySavedLabel.Top = 0;
+            lblMoneySaved.Top = 0;
         }
 
         private void FrmMall_Load(object sender, EventArgs e)
@@ -266,7 +266,7 @@ namespace AttackOfTheKarens
 
         private void tmrBossSpawner_Tick(object sender, EventArgs e)
         {
-            if (Game.Score % 1000 < 100 && Game.Score > 1000)
+            if (Game.Score % 1000 < 25 && Game.Score > 1000)
             {
                 Store s = stores[rand.Next(stores.Count)];
                 s.BossTime();
