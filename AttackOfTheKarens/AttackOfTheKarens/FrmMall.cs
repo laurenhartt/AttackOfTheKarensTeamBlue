@@ -35,7 +35,7 @@ namespace AttackOfTheKarens
         private DateTime scoreTimer2;
         private List<Store> Karenstores;
         private List<Store> ManagerStores;
-        private Dictionary<Store, Store> KM = new Dictionary <Store, Store>();
+        private Dictionary<Store, Store> KM = new Dictionary<Store, Store>();
         private int rate = 10;
 
        
@@ -162,7 +162,6 @@ namespace AttackOfTheKarens
                 }
                 left = 0;
                 top += CELL_SIZE;
-
             }
 
             picOwner.BringToFront();
@@ -174,11 +173,12 @@ namespace AttackOfTheKarens
             //lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
             //lblMoneySavedLabel.Top = 0;
             lblMoneySaved.Top = 0;
-            for(int i = 0; i<=ManagerStores.Count-1; i++ )
+            for (int i = 0; i <= ManagerStores.Count - 1; i++)
             {
-                KM.Add(ManagerStores[i],  Karenstores[i]);
+                KM.Add(ManagerStores[i], Karenstores[i]);
             }
         }
+    
 
         private void FrmMall_Load(object sender, EventArgs e)
         {
@@ -370,10 +370,20 @@ namespace AttackOfTheKarens
 
         public void itemstore_BuyManagerClick(object sender, EventArgs e)
         {
-            Store s = ManagerStores[rand.Next(ManagerStores.Count)];
-            s.DeployManager();
-            s.manager.pic.Visible = true;
-            s.manager.IsPresent = true;
+            if (Game.Score >= 100f)
+            {
+
+                if (ManagerStores.Count > 0)
+                {
+                    Store s = ManagerStores[rand.Next(ManagerStores.Count)];
+                    s.DeployManager();
+                    s.manager.pic.Visible = true;
+                    s.manager.IsPresent = true;
+                    Game.upgradePay(50f);
+                    ManagerStores.Remove(s);
+                } 
+                
+            }
         }
         private void itemstore_rateClick(object sender, EventArgs e)
         {
@@ -401,19 +411,30 @@ namespace AttackOfTheKarens
 
         private void updateManager_Tick(object sender, EventArgs e)
         {
-            
-            foreach (KeyValuePair<Store, Store> k in KM )
+
+            foreach (KeyValuePair<Store, Store> k in KM)
             {
                 if (k.Key.manager.IsPresent && k.Value.karen.IsPresent)
                 {
                     k.Value.MUpdateK();
                 }
-                if(k.Key.manager.IsPresent && k.Value.boss.IsPresent)
+                if (k.Key.manager.IsPresent && k.Value.boss.IsPresent)
                 {
                     k.Value.MUpdateB();
                 }
+
             }
         }
+                private void HowToPlay_Click(object sender, EventArgs e)
+        {
+             
+                HowToPlay howtoplay = new HowToPlay();
+                howtoplay.Show();
+                
+            
+        }
+
+       
     }
 }
 

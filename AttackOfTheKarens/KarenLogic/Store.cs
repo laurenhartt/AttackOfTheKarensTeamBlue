@@ -63,7 +63,7 @@ namespace KarenLogic {
       }
     }
 
-    public void MUpdateK()
+        public void MUpdateK()
         {
             karen.Damage(1);
         }
