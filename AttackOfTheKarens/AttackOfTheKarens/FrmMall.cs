@@ -163,9 +163,9 @@ namespace AttackOfTheKarens
             this.Height = panMall.Height + FORM_PADDING;
             lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 85;
             lblMoneySaved.Top = 0;
-            label1.Top = 300;
+            label1.Top = 100;
             label1.Left = this.Width - label1.Width - 25;
-            label2.Top = 350;
+            label2.Top = 125;
             label2.Left = this.Width - label1.Width - 25;
             for (int i = 0; i <= ManagerStores.Count - 1; i++)
             {
