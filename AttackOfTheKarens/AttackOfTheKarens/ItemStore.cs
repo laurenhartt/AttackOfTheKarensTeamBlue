@@ -16,5 +16,10 @@ namespace AttackOfTheKarens
         {
             InitializeComponent();
         }
+
+        private void BuyManager_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

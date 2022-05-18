@@ -37,6 +37,7 @@
             this.tmrUpdateBoss = new System.Windows.Forms.Timer(this.components);
             this.tmrgameScore = new System.Windows.Forms.Timer(this.components);
             this.lblMoneySaved = new System.Windows.Forms.Label();
+            this.lblMoneySavedLabel = new System.Windows.Forms.Label();
             this.tmrUpdateGame = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -47,7 +48,7 @@
             this.panMall.Location = new System.Drawing.Point(14, 16);
             this.panMall.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panMall.Name = "panMall";
-            this.panMall.Size = new System.Drawing.Size(713, 800);
+            this.panMall.Size = new System.Drawing.Size(641, 719);
             this.panMall.TabIndex = 0;
             // 
             // btnStore
@@ -78,9 +79,9 @@
             // 
             this.tmrBossSpawner.Enabled = true;
             this.tmrBossSpawner.Tick += new System.EventHandler(this.tmrBossSpawner_Tick);
-            // 
+            //
             // tmrUpdateBoss
-            // 
+            //
             this.tmrUpdateBoss.Enabled = true;
             this.tmrUpdateBoss.Tick += new System.EventHandler(this.tmrUpdateBoss_Tick);
             // 
@@ -94,12 +95,24 @@
             this.lblMoneySaved.AutoSize = true;
             this.lblMoneySaved.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMoneySaved.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblMoneySaved.Location = new System.Drawing.Point(733, 9);
+            this.lblMoneySaved.Location = new System.Drawing.Point(2000, 0);
             this.lblMoneySaved.Name = "lblMoneySaved";
             this.lblMoneySaved.Size = new System.Drawing.Size(119, 41);
             this.lblMoneySaved.TabIndex = 1;
             this.lblMoneySaved.Text = "$ 00.00";
             this.lblMoneySaved.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblMoneySavedLabel
+            // 
+            this.lblMoneySavedLabel.AutoSize = true;
+            this.lblMoneySavedLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMoneySavedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblMoneySavedLabel.Location = new System.Drawing.Point(767, -1);
+            this.lblMoneySavedLabel.Name = "lblMoneySavedLabel";
+            this.lblMoneySavedLabel.Size = new System.Drawing.Size(186, 32);
+            this.lblMoneySavedLabel.TabIndex = 2;
+            this.lblMoneySavedLabel.Text = "Money Earned:";
+            this.lblMoneySavedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tmrUpdateGame
             // 
@@ -114,6 +127,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1983, 1241);
             this.Controls.Add(this.btnStore);
+            this.Controls.Add(this.lblMoneySavedLabel);
             this.Controls.Add(this.lblMoneySaved);
             this.Controls.Add(this.panMall);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -138,6 +152,7 @@
         private System.Windows.Forms.Timer tmrUpdateBoss;
 //        private System.Windows.Forms.Timer tmrMoveOwner;
         private System.Windows.Forms.Label lblMoneySaved;
+        private System.Windows.Forms.Label lblMoneySavedLabel;
         private System.Windows.Forms.Timer tmrUpdateGame;
         private System.Windows.Forms.Button btnStore;
         private System.Windows.Forms.Timer tmrgameScore;

@@ -33,7 +33,8 @@ namespace AttackOfTheKarens
         private char[][] map;
         private DateTime scoreTimer;
         private DateTime scoreTimer2;
-        private List<Store> stores;
+        private List<Store> Karenstores;
+        private List<Store> ManagerStores;
 
         // ctor
         public FrmMall()
@@ -103,7 +104,7 @@ namespace AttackOfTheKarens
                                 Row = top / CELL_SIZE,
                                 Col = left / CELL_SIZE,
                             });
-                            stores.Add(s);
+                            Karenstores.Add(s);
                             break;
                         /*case 'B':
                           pic = CreatePic(Properties.Resources.boss, top, left);
@@ -143,10 +144,10 @@ namespace AttackOfTheKarens
                     {
                         panMall.Controls.Add(picBoss);
                     }
-                    if (picManager != null)
-                    {
-                        panMall.Controls.Add(picManager);
-                    }
+                    //if (picManager != null)
+                    //{
+                     //   panMall.Controls.Add(picManager);
+                    //}
                 }
                 left = 0;
                 top += CELL_SIZE;
@@ -157,15 +158,16 @@ namespace AttackOfTheKarens
             panMall.Height = CELL_SIZE * map.Length + PANEL_PADDING;
             this.Width = panMall.Width + FORM_PADDING + 75;
             this.Height = panMall.Height + FORM_PADDING;
-            lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 50;
-            //lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
-            //lblMoneySavedLabel.Top = 0;
-            lblMoneySaved.Top = 0;
+            lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 10;
+            lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
+            lblMoneySavedLabel.Top = 0;
+            lblMoneySaved.Top = lblMoneySavedLabel.Height + 5;
         }
 
         private void FrmMall_Load(object sender, EventArgs e)
         {
-            stores = new List<Store>();
+            Karenstores = new List<Store>();
+            ManagerStores = new List<Store>();
             LoadMap();
             GenerateMall(colors[rand.Next(colors.Length)]);
             tmrKarenSpawner.Interval = rand.Next(1000, 5000);
@@ -186,9 +188,9 @@ namespace AttackOfTheKarens
         private bool IsWalkable(int newRow, int newCol)
         {
             char[] walkableTiles = new char[] { ' ', 'o', 'K', 'B', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'L' };
-            if (stores != null && stores.Count > 0)
+            if (Karenstores != null && Karenstores.Count > 0)
             {
-                foreach (Store store in stores)
+                foreach (Store store in Karenstores)
                 {
                     if ((store.karen.IsPresent || store.boss.IsPresent) && store.containsOwner && (map[newRow][newCol] == 'K'))
                     {
@@ -236,10 +238,10 @@ namespace AttackOfTheKarens
                     case '7':
                     case '8':
                     case '9':
-                        stores[int.Parse(mapTile.ToString())].OwnerWalksIn();
+                        Karenstores[int.Parse(mapTile.ToString())].OwnerWalksIn();
                         break;
                     case 'L':
-                        foreach (Store store in stores)
+                        foreach (Store store in Karenstores)
                         {
                             store.ResetOwner();
                         }
@@ -260,15 +262,15 @@ namespace AttackOfTheKarens
         }
         private void tmrKarenSpawner_Tick(object sender, EventArgs e)
         {
-            Store s = stores[rand.Next(stores.Count)];
+            Store s = Karenstores[rand.Next(Karenstores.Count)];
             if(!s.boss.IsPresent) s.ActivateTheKaren();
         }
 
         private void tmrBossSpawner_Tick(object sender, EventArgs e)
         {
-            if (Game.Score % 1000 < 25 && Game.Score > 1000)
+            if (Game.Score % 1000 < 100 && Game.Score > 1000)
             {
-                Store s = stores[rand.Next(stores.Count)];
+                Store s = Karenstores[rand.Next(Karenstores.Count)];
                 s.BossTime();
             }
         }
@@ -281,9 +283,9 @@ namespace AttackOfTheKarens
 
         private void tmrUpdateKarens_Tick(object sender, EventArgs e)
         {
-            if (stores != null && stores.Count > 0)
+            if (Karenstores != null && Karenstores.Count > 0)
             {
-                foreach (Store store in stores)
+                foreach (Store store in Karenstores)
                 {
                     store.Update();
                 }
@@ -292,9 +294,9 @@ namespace AttackOfTheKarens
 
         private void tmrUpdateBoss_Tick(object sender, EventArgs e)
         {
-            if (stores != null && stores.Count > 0)
+            if (Karenstores != null && Karenstores.Count > 0)
             {
-                foreach (Store store in stores)
+                foreach (Store store in Karenstores)
                 {
                     store.BUpdate();
                 }
@@ -330,7 +332,7 @@ namespace AttackOfTheKarens
             interval = scoreTimer2.Subtract(scoreTimer);
             scoreTimer = scoreTimer2;
             double newTime = interval.TotalSeconds;
-            foreach(Store s in stores)
+            foreach(Store s in Karenstores)
             {
                 if (s.karen.IsPresent) count += 1;
                 if (s.boss.IsPresent) count += 3;
@@ -339,6 +341,12 @@ namespace AttackOfTheKarens
        
             else newScore = (float)((10 / count) * newTime); 
             Game.AddToScore(newScore);
+        }
+
+        public void ManagerSpawn(object sender, EventArgs e)
+        {
+            Store s = ManagerStores[rand.Next(ManagerStores.Count)];
+            s.DeployManager();
         }
 
     }

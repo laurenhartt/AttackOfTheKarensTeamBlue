@@ -15,6 +15,7 @@ namespace KarenLogic {
     {
         this.karen = karen;
         this.boss = boss;
+        this.manager = manager;
     }
 
 
@@ -28,6 +29,10 @@ namespace KarenLogic {
       if(karen.IsPresent) karen.Dissapear();
       boss.Appear();
     }
+        public void DeployManager()
+        {
+            manager.Appear();
+        }
 
         public void OwnerWalksIn()
         {
