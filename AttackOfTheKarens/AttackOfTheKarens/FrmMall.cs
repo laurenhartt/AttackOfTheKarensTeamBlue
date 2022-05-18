@@ -37,6 +37,8 @@ namespace AttackOfTheKarens
         private List<Store> ManagerStores;
         private int rate = 10;
 
+        private ItemStore itemStore = new ItemStore();
+
         // ctor
         public FrmMall()
         {
@@ -319,15 +321,16 @@ namespace AttackOfTheKarens
         private void btnStore_Click(object sender, EventArgs e)
         {
             //player?.Stop();
-            ItemStore itemstore = new ItemStore();
-            itemstore.Show();
+            itemStore.Initialize();
+            itemStore.addStores(ManagerStores);
+            itemStore.Show();
             //this.Hide();
-            itemstore.rateUpgradeEvent += itemstore_rateClick;
-<<<<<<< HEAD
-            itemstore.attackUpgradeEvent += itemstore_attackClick;
-=======
-            itemstore.BuyManagerEvent += itemstore_BuyManagerClick;
->>>>>>> 94d2cb3d4820db4637b31bea199872c828367a5e
+            itemStore.rateUpgradeEvent += itemstore_rateClick;
+
+            itemStore.attackUpgradeEvent += itemstore_attackClick;
+
+            itemStore.BuyManagerEvent += itemstore_BuyManagerClick;
+
 
         }
 

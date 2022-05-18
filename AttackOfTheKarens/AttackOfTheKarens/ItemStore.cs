@@ -7,15 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KarenLogic;
 
 namespace AttackOfTheKarens
 {
     public partial class ItemStore : Form
     {
+        public List<Store> storeUpgrades;
         public ItemStore()
+        {
+            this.storeUpgrades = null;
+        }
+
+        public void Initialize()
         {
             InitializeComponent();
         }
+
+        public void addStores(List<Store> stores)
+        {
+            this.storeUpgrades = stores;
+        }
+
         public event EventHandler BuyManagerEvent;
 
         public void BuyManagerClicked(EventArgs e)
