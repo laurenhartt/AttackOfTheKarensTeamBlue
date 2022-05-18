@@ -35,6 +35,7 @@ namespace AttackOfTheKarens
         private DateTime scoreTimer2;
         private List<Store> Karenstores;
         private List<Store> ManagerStores;
+        private Dictionary<Store, Store> KM = new Dictionary <Store, Store>();
         private int rate = 10;
 
        
@@ -161,6 +162,7 @@ namespace AttackOfTheKarens
                 }
                 left = 0;
                 top += CELL_SIZE;
+
             }
 
             picOwner.BringToFront();
@@ -172,6 +174,10 @@ namespace AttackOfTheKarens
             //lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
             //lblMoneySavedLabel.Top = 0;
             lblMoneySaved.Top = 0;
+            for(int i = 0; i<=ManagerStores.Count-1; i++ )
+            {
+                KM.Add(ManagerStores[i],  Karenstores[i]);
+            }
         }
 
         private void FrmMall_Load(object sender, EventArgs e)
@@ -395,7 +401,18 @@ namespace AttackOfTheKarens
 
         private void updateManager_Tick(object sender, EventArgs e)
         {
-
+            
+            foreach (KeyValuePair<Store, Store> k in KM )
+            {
+                if (k.Key.manager.IsPresent && k.Value.karen.IsPresent)
+                {
+                    k.Value.MUpdateK();
+                }
+                if(k.Key.manager.IsPresent && k.Value.boss.IsPresent)
+                {
+                    k.Value.MUpdateB();
+                }
+            }
         }
     }
 }

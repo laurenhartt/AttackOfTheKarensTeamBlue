@@ -63,16 +63,14 @@ namespace KarenLogic {
       }
     }
 
-    public void MUpdate()
+    public void MUpdateK()
         {
-            if(manager.IsPresent && karen.IsPresent)
-            {
-                karen.Damage(1);
-            }
-            if(manager.IsPresent && boss.IsPresent)
-            {
-                boss.Damage(1);
-            }
+            karen.Damage(1);
         }
-  }
+
+        public void MUpdateB()
+        {
+            boss.Damage(1);
+        }
+    }
 }
