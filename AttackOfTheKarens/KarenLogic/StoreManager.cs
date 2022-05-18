@@ -14,6 +14,7 @@ namespace KarenLogic {
         /// This is the image of the StoreManager
         /// </summary>
         public PictureBox pic;
+        
 
         /// <summary>
         /// Constructor
@@ -21,9 +22,9 @@ namespace KarenLogic {
         /// <param name="pic">The PictureBox container for the StoreManager</param>
         public StoreManager(PictureBox pic) {
           this.pic = pic;
-          //this.pic.Visible = false;
-          //this.IsPresent = false;
-          //this.pic.BringToFront();
+          this.pic.Visible = false;
+          this.IsPresent = false;
+          this.pic.BringToFront();
         }
 
         public void Appear()

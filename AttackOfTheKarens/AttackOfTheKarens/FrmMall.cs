@@ -106,7 +106,7 @@ namespace AttackOfTheKarens
                             {
                                 Row = top / CELL_SIZE,
                                 Col = left / CELL_SIZE,
-                            });
+                            },null);
                             Karenstores.Add(s);
                             break;
                         /*case 'B':
@@ -119,6 +119,12 @@ namespace AttackOfTheKarens
                             picManager = CreatePic(Properties.Resources.storemanager, top, left);
                             xManager = top / CELL_SIZE;
                             yManager = left / CELL_SIZE;
+                            Store m = new Store(null, null, new StoreManager(picManager)
+                            {
+                                Row = top / CELL_SIZE,
+                                Col = left / CELL_SIZE,
+                            });
+                            ManagerStores.Add(m);
                             break;
                         case 'o':
                             picOwner = CreatePic(Properties.Resources.owner, top, left);
@@ -147,10 +153,10 @@ namespace AttackOfTheKarens
                     {
                         panMall.Controls.Add(picBoss);
                     }
-                    //if (picManager != null)
-                    //{
-                     //   panMall.Controls.Add(picManager);
-                    //}
+                    if (picManager != null)
+                    {
+                        panMall.Controls.Add(picManager);
+                    }
                 }
                 left = 0;
                 top += CELL_SIZE;
@@ -242,6 +248,7 @@ namespace AttackOfTheKarens
                     case '8':
                     case '9':
                         Karenstores[int.Parse(mapTile.ToString())].OwnerWalksIn();
+                        //ManagerStores[int.Parse(mapTile.ToString())].OwnerWalksIn();
                         break;
                     case 'L':
                         foreach (Store store in Karenstores)
@@ -356,8 +363,11 @@ namespace AttackOfTheKarens
 
         public void itemstore_BuyManagerClick(object sender, EventArgs e)
         {
-            Store s = ManagerStores[rand.Next(ManagerStores.Count)];
-            s.DeployManager();
+            if (Game.Score >= 100f)
+            {
+                Store s = ManagerStores[rand.Next(ManagerStores.Count)];
+                s.DeployManager();
+            }
         }
         private void itemstore_rateClick(object sender, EventArgs e)
         {

@@ -6,19 +6,20 @@ namespace KarenLogic {
     public StoreManager manager;
     public bool containsOwner;
     public int attack;
+        private StoreManager storeManager;
 
-   
-    public Store(Karen karen, Boss boss) 
-    {
-        this.karen = karen;
-        this.boss = boss;
-        this.manager = manager;
-        this.attack = 1;
-        
-    }
+      
+            public Store(Karen karen, Boss boss, StoreManager manager)
+            {
+                this.karen = karen;
+                this.boss = boss;
+                this.manager = manager;
+                this.attack = 1;
+
+            }
 
 
-        public void ActivateTheKaren()
+            public void ActivateTheKaren()
         {
             karen.Appear();
         }
