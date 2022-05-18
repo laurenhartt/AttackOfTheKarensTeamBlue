@@ -60,11 +60,10 @@
             this.btnStore.Text = "Open the Store";
             this.btnStore.UseVisualStyleBackColor = false;
             this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
+            this.btnStore.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMall_KeyUp);
             // 
             // tmrKarenSpawner
-            //
-            //this.tmrKarenSpawner.Enabled = true;
-            //this.tmrKarenSpawner.Interval = 5000;
+            // 
             this.tmrKarenSpawner.Tick += new System.EventHandler(this.tmrKarenSpawner_Tick);
             // 
             // tmrUpdateKarens

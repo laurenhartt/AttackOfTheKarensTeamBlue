@@ -285,10 +285,10 @@ namespace AttackOfTheKarens
             }
         }
 
-        //        private void tmrMoveOwner_Tick(object sender, EventArgs e) {
-        //          Direction dir = (Direction)rand.Next(4);
-        //          Move(dir);
-        //        }
+//        private void tmrMoveOwner_Tick(object sender, EventArgs e) {
+//          Direction dir = (Direction)rand.Next(4);
+//          Move(dir);
+//        }
 
         private void tmrUpdateGame_Tick(object sender, EventArgs e)
         {
