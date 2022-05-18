@@ -32,6 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BuyManager
@@ -61,11 +63,11 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(222, 147);
+            this.button1.Location = new System.Drawing.Point(222, 139);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 55);
+            this.button1.Size = new System.Drawing.Size(122, 71);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Purchase";
+            this.button1.Text = "Purchase ($500)";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -80,12 +82,37 @@
             this.textBox2.Text = "Add $1/hr to rate";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(24, 256);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(147, 29);
+            this.textBox3.TabIndex = 4;
+            this.textBox3.Text = "Add 1 to attack";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(222, 224);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 80);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Purchase($500)";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // ItemStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AttackOfTheKarens.Properties.Resources.ShopShelves;
             this.ClientSize = new System.Drawing.Size(368, 511);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
@@ -102,6 +129,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button2;
     }
     #endregion
 

@@ -54,7 +54,7 @@
             // 
             this.btnStore.BackColor = System.Drawing.Color.MediumPurple;
             this.btnStore.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStore.Location = new System.Drawing.Point(974, 112);
+            this.btnStore.Location = new System.Drawing.Point(1324, 41);
             this.btnStore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(143, 79);

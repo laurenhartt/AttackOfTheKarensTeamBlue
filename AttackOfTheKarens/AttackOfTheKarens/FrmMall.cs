@@ -159,7 +159,7 @@ namespace AttackOfTheKarens
             panMall.Height = CELL_SIZE * map.Length + PANEL_PADDING;
             this.Width = panMall.Width + FORM_PADDING + 75;
             this.Height = panMall.Height + FORM_PADDING;
-            lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 10;
+            lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 85;
             //lblMoneySavedLabel.Left = this.Width - lblMoneySavedLabel.Width - 10;
             //lblMoneySavedLabel.Top = 0;
             lblMoneySaved.Top = 0;
@@ -323,7 +323,11 @@ namespace AttackOfTheKarens
             itemstore.Show();
             //this.Hide();
             itemstore.rateUpgradeEvent += itemstore_rateClick;
+<<<<<<< HEAD
+            itemstore.attackUpgradeEvent += itemstore_attackClick;
+=======
             itemstore.BuyManagerEvent += itemstore_BuyManagerClick;
+>>>>>>> 94d2cb3d4820db4637b31bea199872c828367a5e
 
         }
 
@@ -354,7 +358,26 @@ namespace AttackOfTheKarens
         }
         private void itemstore_rateClick(object sender, EventArgs e)
         {
-            rate += 1;
+            if (Game.Score >= 500f)
+            {
+
+                rate += 1;
+                Game.upgradePay(500f);
+            }
+        }
+
+        private void itemstore_attackClick(object sender, EventArgs e)
+        {
+            if (Game.Score >= 500f)
+            {
+
+                foreach (Store store in Karenstores)
+                {
+                    store.addAttack();
+
+                }
+                Game.upgradePay(500f);
+            }
         }
     }
 }

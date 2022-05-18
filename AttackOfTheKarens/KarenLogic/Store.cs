@@ -5,6 +5,7 @@ namespace KarenLogic {
     public Boss boss;
     public StoreManager manager;
     public bool containsOwner;
+    public int attack;
 
    
     public Store(Karen karen, Boss boss) 
@@ -12,6 +13,7 @@ namespace KarenLogic {
         this.karen = karen;
         this.boss = boss;
         this.manager = manager;
+        this.attack = 1;
         
     }
 
@@ -21,6 +23,10 @@ namespace KarenLogic {
             karen.Appear();
         }
 
+        public void addAttack()
+        {
+            attack++;
+        }
     public void BossTime()
     {
       if(karen.IsPresent) karen.Dissapear();

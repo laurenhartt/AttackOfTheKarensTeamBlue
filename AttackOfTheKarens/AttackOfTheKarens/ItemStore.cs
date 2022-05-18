@@ -36,6 +36,17 @@ namespace AttackOfTheKarens
         {
             rateUpgradeClicked(e);
         }
+
+        public event EventHandler attackUpgradeEvent;
+
+        public void attackUpgradeClicked(EventArgs e)
+        {
+            attackUpgradeEvent?.Invoke(this, e);
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            attackUpgradeClicked(e);
+        }
     }
 
     
