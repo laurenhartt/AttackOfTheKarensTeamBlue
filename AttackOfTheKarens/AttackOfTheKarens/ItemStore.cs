@@ -29,6 +29,11 @@ namespace AttackOfTheKarens
             this.storeUpgrades = stores;
         }
 
+        public void removeStores(Store store)
+        {
+            this.storeUpgrades.Remove(store);
+        }
+
         public event EventHandler BuyManagerEvent;
 
         public void BuyManagerClicked(EventArgs e)

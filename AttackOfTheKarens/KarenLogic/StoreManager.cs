@@ -10,11 +10,11 @@ namespace KarenLogic {
         public int Col { get; set; }
         public bool IsPresent { get; set; }
 
+
         /// <summary>
         /// This is the image of the StoreManager
         /// </summary>
         public PictureBox pic;
-        
 
         /// <summary>
         /// Constructor
@@ -30,10 +30,12 @@ namespace KarenLogic {
         public void Appear()
         {
             //this.Health = 5;
+            
             this.pic.Visible = true;
             this.IsPresent = true;
             this.pic.BringToFront();
 
         }
+
     }
 }

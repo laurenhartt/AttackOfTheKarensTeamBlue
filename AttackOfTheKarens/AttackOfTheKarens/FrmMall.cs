@@ -37,7 +37,7 @@ namespace AttackOfTheKarens
         private List<Store> ManagerStores;
         private int rate = 10;
 
-        private ItemStore itemStore = new ItemStore();
+       
 
         // ctor
         public FrmMall()
@@ -106,7 +106,7 @@ namespace AttackOfTheKarens
                             {
                                 Row = top / CELL_SIZE,
                                 Col = left / CELL_SIZE,
-                            },null);
+                            }, null);
                             Karenstores.Add(s);
                             break;
                         /*case 'B':
@@ -126,6 +126,7 @@ namespace AttackOfTheKarens
                             });
                             ManagerStores.Add(m);
                             break;
+
                         case 'o':
                             picOwner = CreatePic(Properties.Resources.owner, top, left);
                             xOwner = left / CELL_SIZE;
@@ -248,7 +249,6 @@ namespace AttackOfTheKarens
                     case '8':
                     case '9':
                         Karenstores[int.Parse(mapTile.ToString())].OwnerWalksIn();
-                        //ManagerStores[int.Parse(mapTile.ToString())].OwnerWalksIn();
                         break;
                     case 'L':
                         foreach (Store store in Karenstores)
@@ -328,6 +328,7 @@ namespace AttackOfTheKarens
         private void btnStore_Click(object sender, EventArgs e)
         {
             //player?.Stop();
+            ItemStore itemStore = new ItemStore();
             itemStore.Initialize();
             itemStore.addStores(ManagerStores);
             itemStore.Show();
@@ -363,11 +364,10 @@ namespace AttackOfTheKarens
 
         public void itemstore_BuyManagerClick(object sender, EventArgs e)
         {
-            if (Game.Score >= 100f)
-            {
-                Store s = ManagerStores[rand.Next(ManagerStores.Count)];
-                s.DeployManager();
-            }
+            Store s = ManagerStores[rand.Next(ManagerStores.Count)];
+            s.DeployManager();
+            s.manager.pic.Visible = true;
+            s.manager.IsPresent = true;
         }
         private void itemstore_rateClick(object sender, EventArgs e)
         {
@@ -391,6 +391,11 @@ namespace AttackOfTheKarens
                 }
                 Game.upgradePay(500f);
             }
+        }
+
+        private void updateManager_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

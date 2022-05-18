@@ -6,20 +6,19 @@ namespace KarenLogic {
     public StoreManager manager;
     public bool containsOwner;
     public int attack;
-        private StoreManager storeManager;
 
-      
-            public Store(Karen karen, Boss boss, StoreManager manager)
-            {
-                this.karen = karen;
-                this.boss = boss;
-                this.manager = manager;
-                this.attack = 1;
+   
+    public Store(Karen karen, Boss boss, StoreManager manager) 
+    {
+        this.karen = karen;
+        this.boss = boss;
+        this.manager = manager;
+        this.attack = 1;
+        
+    }
 
-            }
 
-
-            public void ActivateTheKaren()
+        public void ActivateTheKaren()
         {
             karen.Appear();
         }
@@ -63,5 +62,17 @@ namespace KarenLogic {
         boss.Damage(1);
       }
     }
+
+    public void MUpdate()
+        {
+            if(manager.IsPresent && karen.IsPresent)
+            {
+                karen.Damage(1);
+            }
+            if(manager.IsPresent && boss.IsPresent)
+            {
+                boss.Damage(1);
+            }
+        }
   }
 }
