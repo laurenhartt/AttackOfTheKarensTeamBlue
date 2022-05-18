@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Windows.Forms;
+using System.Runtime;
 
 namespace AttackOfTheKarens
 {
@@ -30,6 +31,8 @@ namespace AttackOfTheKarens
         private int xManager;
         private int yManager;
         private char[][] map;
+        private DateTime scoreTimer;
+        private DateTime scoreTimer2;
         private List<Store> stores;
 
         // ctor
@@ -172,6 +175,7 @@ namespace AttackOfTheKarens
             player = new SoundPlayer();
             player.SoundLocation = "data/mall music.wav";
             player.PlayLooping();
+            scoreTimer = DateTime.Now;
         }
 
         private bool IsInBounds(int newRow, int newCol)
@@ -252,9 +256,11 @@ namespace AttackOfTheKarens
 
         private void tmrBossSpawner_Tick(object sender, EventArgs e)
         {
-
-            Store s = stores[rand.Next(stores.Count)];
-            s.BossTime();
+            if (Game.Score % 1000 < 100 && Game.Score > 1000)
+            {
+                Store s = stores[rand.Next(stores.Count)];
+                s.BossTime();
+            }
         }
 
         private void FrmMall_FormClosed(object sender, FormClosedEventArgs e)
@@ -292,6 +298,8 @@ namespace AttackOfTheKarens
 
         private void tmrUpdateGame_Tick(object sender, EventArgs e)
         {
+            
+
             lblMoneySaved.Text = Game.Score.ToString("$ #,##0.00");
         }
 
@@ -302,6 +310,27 @@ namespace AttackOfTheKarens
             itemstore.Show();
             //this.Hide();
         }
+
+        private void gameScore_Tick(object sender, EventArgs e)
+        {
+            float newScore;
+            int count = 0;
+            TimeSpan interval = new TimeSpan();
+            scoreTimer2 = DateTime.Now;
+            interval = scoreTimer2.Subtract(scoreTimer);
+            scoreTimer = scoreTimer2;
+            double newTime = interval.TotalSeconds;
+            foreach(Store s in stores)
+            {
+                if (s.karen.IsPresent) count += 1;
+                if (s.boss.IsPresent) count += 3;
+            }
+            if (count == 0)  newScore = (float)(10 * newTime);
+       
+            else newScore = (float)((10 / count) * newTime); 
+            Game.AddToScore(newScore);
+        }
+
     }
 }
 

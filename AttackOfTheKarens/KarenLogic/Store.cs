@@ -25,6 +25,7 @@ namespace KarenLogic {
 
     public void BossTime()
     {
+      if(karen.IsPresent) karen.Dissapear();
       boss.Appear();
     }
 
@@ -48,7 +49,7 @@ namespace KarenLogic {
 
     public void BUpdate()
     {
-      if (karen.IsPresent && containsOwner)
+      if (boss.IsPresent && containsOwner)
       {
         boss.Damage(1);
       }

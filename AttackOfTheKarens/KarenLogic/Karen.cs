@@ -35,10 +35,18 @@ namespace KarenLogic
 
         public void Appear()
         {
+            this.Health = 5;
             this.pic.Visible = true;
             this.IsPresent = true;
             this.pic.BringToFront();
 
+        }
+
+        public void Dissapear()
+        {
+            this.Health = 0;
+            this.pic.Visible = false;
+            this.IsPresent= false;
         }
 
         public void Damage(int amount)
