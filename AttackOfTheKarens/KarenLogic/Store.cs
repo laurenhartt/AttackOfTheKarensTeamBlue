@@ -4,7 +4,7 @@ namespace KarenLogic {
     public Karen karen;
     public Boss boss;
     public StoreManager manager;
-    private bool containsOwner;
+    public bool containsOwner;
 
     static int number(int min, int max)
     {

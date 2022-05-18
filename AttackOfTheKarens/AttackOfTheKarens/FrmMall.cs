@@ -186,6 +186,16 @@ namespace AttackOfTheKarens
         private bool IsWalkable(int newRow, int newCol)
         {
             char[] walkableTiles = new char[] { ' ', 'o', 'K', 'B', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'L' };
+            if (stores != null && stores.Count > 0)
+            {
+                foreach (Store store in stores)
+                {
+                    if (store.karen.IsPresent && store.containsOwner && (map[newRow][newCol] == 'K'))
+                    {
+                        return false;
+                    }
+                }
+            }
             return walkableTiles.Contains(map[newRow][newCol]);
         }
 
