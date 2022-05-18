@@ -163,6 +163,10 @@ namespace AttackOfTheKarens
             this.Height = panMall.Height + FORM_PADDING;
             lblMoneySaved.Left = this.Width - lblMoneySaved.Width - 85;
             lblMoneySaved.Top = 0;
+            label1.Top = 300;
+            label1.Left = this.Width - label1.Width - 25;
+            label2.Top = 350;
+            label2.Left = this.Width - label1.Width - 25;
             for (int i = 0; i <= ManagerStores.Count - 1; i++)
             {
                 KM.Add(ManagerStores[i], Karenstores[i]);
@@ -312,6 +316,8 @@ namespace AttackOfTheKarens
         private void tmrUpdateGame_Tick(object sender, EventArgs e)
         {
             lblMoneySaved.Text = Game.Score.ToString("$ #,##0.00");
+            label1.Text = Karenstores[0].attack.ToString("## ATK");
+            label2.Text = rate.ToString("$##/hr");
         }
 
         private void btnStore_Click(object sender, EventArgs e)
