@@ -236,13 +236,7 @@ namespace AttackOfTheKarens
 
         private void FrmMall_KeyUp(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Up: Move(Direction.UP); break;
-                case Keys.Down: Move(Direction.DOWN); break;
-                case Keys.Left: Move(Direction.LEFT); break;
-                case Keys.Right: Move(Direction.RIGHT); break;
-            }
+
         }
 
         private void tmrKarenSpawner_Tick(object sender, EventArgs e)
@@ -277,13 +271,7 @@ namespace AttackOfTheKarens
 
         private void tmrUpdateBoss_Tick(object sender, EventArgs e)
         {
-            if (stores != null && stores.Count > 0)
-            {
-                foreach (Store store in stores)
-                {
-                    store.BUpdate();
-                }
-            }
+
         }
 
         //    private void tmrMoveOwner_Tick(object sender, EventArgs e) {
@@ -303,8 +291,6 @@ namespace AttackOfTheKarens
             itemstore.Show();
             //this.Hide();
         }
-
-
     }
 }
 
