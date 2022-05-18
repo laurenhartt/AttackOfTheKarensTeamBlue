@@ -2,7 +2,7 @@
 namespace KarenLogic {
   public class Store {
     public Karen karen;
-    //private Boss boss;
+    public  Boss boss;
     public StoreManager manager;
     private bool containsOwner;
 
@@ -13,14 +13,8 @@ namespace KarenLogic {
     }
     public Store(Karen karen, Boss boss) 
     {
-      if (number(1, 100) == 1)
-      {
-        this.karen = boss;
-      }
-      else
-      {
-        this.karen = karen;
-      }
+      this.karen = karen;
+      this.boss = boss;
     }
 
     public void ActivateTheKaren() {
@@ -29,7 +23,7 @@ namespace KarenLogic {
 
     public void BossTime()
     {
-      karen.Appear();
+      boss.Appear();
     }
 
     public void OwnerWalksIn() {
@@ -50,7 +44,7 @@ namespace KarenLogic {
     {
       if (karen.IsPresent && containsOwner)
       {
-        karen.Damage(1);
+        boss.Damage(1);
       }
     }
   }

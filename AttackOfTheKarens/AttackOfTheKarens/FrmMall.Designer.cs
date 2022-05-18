@@ -65,7 +65,9 @@
             this.btnStore.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMall_KeyUp);
             // 
             // tmrKarenSpawner
-            // 
+            //
+            //this.tmrKarenSpawner.Enabled = true;
+            //this.tmrKarenSpawner.Interval = 5000;
             this.tmrKarenSpawner.Tick += new System.EventHandler(this.tmrKarenSpawner_Tick);
             // 
             // tmrUpdateKarens
@@ -118,7 +120,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1735, 931);
+            this.ClientSize = new System.Drawing.Size(1750, 931);
             this.Controls.Add(this.btnStore);
             this.Controls.Add(this.lblMoneySavedLabel);
             this.Controls.Add(this.lblMoneySaved);
@@ -130,6 +132,7 @@
             this.Text = "Attack of the Karens!!";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMall_FormClosed);
             this.Load += new System.EventHandler(this.FrmMall_Load);
+            this.Click += new System.EventHandler(this.btnStore_Click);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMall_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();

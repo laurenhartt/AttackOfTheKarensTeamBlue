@@ -303,8 +303,6 @@ namespace AttackOfTheKarens
             itemstore.Show();
             //this.Hide();
         }
-
-
     }
 }
 
