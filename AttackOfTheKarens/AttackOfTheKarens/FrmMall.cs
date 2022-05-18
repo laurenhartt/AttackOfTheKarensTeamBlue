@@ -261,7 +261,7 @@ namespace AttackOfTheKarens
         private void tmrKarenSpawner_Tick(object sender, EventArgs e)
         {
             Store s = stores[rand.Next(stores.Count)];
-            s.ActivateTheKaren();
+            if(!s.boss.IsPresent) s.ActivateTheKaren();
         }
 
         private void tmrBossSpawner_Tick(object sender, EventArgs e)

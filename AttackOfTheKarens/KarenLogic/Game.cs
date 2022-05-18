@@ -7,7 +7,8 @@ namespace KarenLogic {
     public static List<Form> openForms;
 
     static Game() {
-      openForms = new List<Form>(); 
+      openForms = new List<Form>();
+      Score = 900f;
     }
 
     public static void AddToScore(float amount) {

@@ -77,7 +77,13 @@
             // 
             // tmrBossSpawner
             // 
+            this.tmrBossSpawner.Enabled = true;
             this.tmrBossSpawner.Tick += new System.EventHandler(this.tmrBossSpawner_Tick);
+            //
+            // tmrUpdateBoss
+            //
+            this.tmrUpdateBoss.Enabled = true;
+            this.tmrUpdateBoss.Tick += new System.EventHandler(this.tmrUpdateBoss_Tick);
             // 
             // tmrgameScore
             // 
@@ -101,7 +107,7 @@
             this.lblMoneySavedLabel.AutoSize = true;
             this.lblMoneySavedLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMoneySavedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblMoneySavedLabel.Location = new System.Drawing.Point(920, 9);
+            this.lblMoneySavedLabel.Location = new System.Drawing.Point(767, -1);
             this.lblMoneySavedLabel.Name = "lblMoneySavedLabel";
             this.lblMoneySavedLabel.Size = new System.Drawing.Size(186, 32);
             this.lblMoneySavedLabel.TabIndex = 2;
