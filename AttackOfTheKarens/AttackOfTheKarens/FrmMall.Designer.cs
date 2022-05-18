@@ -53,14 +53,13 @@
             // 
             this.btnStore.BackColor = System.Drawing.Color.MediumPurple;
             this.btnStore.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStore.Location = new System.Drawing.Point(1349, 67);
+            this.btnStore.Location = new System.Drawing.Point(1347, 65);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(125, 59);
             this.btnStore.TabIndex = 3;
             this.btnStore.Text = "Open the Store";
             this.btnStore.UseVisualStyleBackColor = false;
             this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
-            this.btnStore.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmMall_KeyUp);
             // 
             // tmrKarenSpawner
             // 
@@ -75,11 +74,6 @@
             // tmrBossSpawner
             // 
             this.tmrBossSpawner.Tick += new System.EventHandler(this.tmrBossSpawner_Tick);
-            // 
-            // tmrUpdateBoss
-            // 
-            this.tmrUpdateBoss.Enabled = true;
-            this.tmrUpdateBoss.Tick += new System.EventHandler(this.tmrUpdateBoss_Tick);
             // 
             // lblMoneySaved
             // 
@@ -121,7 +115,6 @@
             this.Controls.Add(this.lblMoneySavedLabel);
             this.Controls.Add(this.lblMoneySaved);
             this.Controls.Add(this.panMall);
-            this.DoubleBuffered = true;
             this.Name = "FrmMall";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Attack of the Karens!!";
